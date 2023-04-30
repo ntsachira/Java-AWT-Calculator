@@ -21,7 +21,7 @@ import java.awt.datatransfer.Transferable;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent; 
+import java.awt.event.WindowEvent;
 
 class Close extends WindowAdapter {
 
@@ -48,10 +48,10 @@ class cal implements ActionListener {
     Button btnAdd = new Button("+");
     Button btnSubtract = new Button("-");
     Button btnMultiply = new Button("×");
-    Button btnDivide = new Button("÷");
+    Button btnDivide = new Button("/");
     Button btnEqual = new Button("=");
     Button btnClear = new Button("C");
-    Button btnSqRt = new Button("SqRt");
+    Button btnSqRt = new Button("SQRT");
     Button btnDot = new Button(".");
     Button btnNegativeMark = new Button("+/-");
     Button btnPercentage = new Button("%");
@@ -63,43 +63,36 @@ class cal implements ActionListener {
 
     TextField result_textField = new TextField();
 
-   
     String firstValue, secondValue, operator, copiedText;
     double firstDoubleValue, secondDoubleValue, Answer;
     int decimalCount = 0, zeroCount = 0;
 
-    Panel pannel_north = new Panel();    
+    Panel pannel_north = new Panel();
     Panel pannel_north_sub2 = new Panel();
     Panel pannel_center = new Panel();
-    
+
     cal() {
 
-       
         frame1.addWindowListener(new Close());
         frame1.setBackground(Color.WHITE);
         frame1.setBounds(700, 200, 400, 600);
         frame1.setTitle("Calculator");
         frame1.setResizable(false);
 
-        
         Font Segoe_UI_15 = new Font("Segoe UI", Font.PLAIN, 15);
 
-        
         MenuBar menuBar = new MenuBar();
         menuBar.setFont(Segoe_UI_15);
 
-      
         Menu edit_menu = new Menu("Edit");
         Menu help_menu = new Menu("Help");
 
-      
         MenuItem Edit_menu_item_copy = new MenuItem("Copy");
         MenuItem Edit_menu_item_paste = new MenuItem("Paste");
         MenuItem help_menu_item_onlineSupport = new MenuItem("Online support");
         MenuItem help_menu_item_checkForUpdates = new MenuItem("Check for updates");
         MenuItem help_menu_item_about = new MenuItem("About");
 
-       
         edit_menu.add(Edit_menu_item_copy);
         edit_menu.add(Edit_menu_item_paste);
         help_menu.add(help_menu_item_onlineSupport);
@@ -109,17 +102,14 @@ class cal implements ActionListener {
         menuBar.add(edit_menu);
         menuBar.add(help_menu);
 
-        
         frame1.setMenuBar(menuBar);
 
-       
         Font Segoe_UI_24 = new Font("Segoe UI", 0, 24);
         Font Ebrima_24 = new Font("Ebrima", 0, 24);
         Font Segoe_UI_20 = new Font("Segoe UI", 0, 20);
         Font times_36 = new Font("Times New Roman", 0, 36);
         Font times_48 = new Font("Times New Roman", 0, 48);
 
-        
         btn0.setFont(Segoe_UI_24);
         btn1.setFont(Segoe_UI_24);
         btn2.setFont(Segoe_UI_24);
@@ -143,9 +133,9 @@ class cal implements ActionListener {
 
         btnCopy.setFont(Segoe_UI_20);
         btnPaste.setFont(Segoe_UI_20);
-        
-        Color numberBtnColor = new Color(240,240,240);
-        Color operatorBtnColor = new Color(204,204,255);
+
+        Color numberBtnColor = new Color(240, 240, 240);
+        Color operatorBtnColor = new Color(204, 204, 255);
 
         btn0.setBackground(numberBtnColor);
         btn1.setBackground(numberBtnColor);
@@ -168,10 +158,9 @@ class cal implements ActionListener {
         btnClear.setBackground(operatorBtnColor);
         btnMultiply.setBackground(operatorBtnColor);
 
-
         btn0.setForeground(Color.black);
         btn1.setForeground(Color.black);
-       
+
         GridLayout grid_sub1 = new GridLayout(1, 2, 10, 3);
 
         btn2.setForeground(Color.black);
@@ -193,11 +182,10 @@ class cal implements ActionListener {
         btnClear.setForeground(Color.black);
         btnMultiply.setForeground(Color.black);
 
-        
         Font segeo_55 = new Font("Segoe UI", Font.PLAIN, 55);
-        
-        Color panelBackColor = new Color(240,240,240);
-        
+
+        Color panelBackColor = new Color(240, 240, 240);
+
         result_textField.setFont(segeo_55);
         result_textField.setEditable(false);
         result_textField.setBackground(panelBackColor);
@@ -206,7 +194,6 @@ class cal implements ActionListener {
         result_textField.setText(" 0");
         result_textField.setFocusable(false);
 
-        
         GridLayout grid_centerPanel = new GridLayout(5, 4, 3, 3);
         FlowLayout flow1 = new FlowLayout(FlowLayout.CENTER, 0, 5);
         pannel_north.setLayout(flow1);
@@ -215,16 +202,15 @@ class cal implements ActionListener {
 
         pannel_north_sub2.add(result_textField);
 
-        pannel_north.add(pannel_north_sub2);        
+        pannel_north.add(pannel_north_sub2);
         pannel_center.setLayout(grid_centerPanel);
 
-        
         pannel_north.setBackground(operatorBtnColor);
-        pannel_center.setBackground(Color.WHITE);   
+        pannel_center.setBackground(Color.WHITE);
         pannel_north_sub2.setBackground(panelBackColor);
 
         pannel_north.setPreferredSize(new Dimension(300, 90));
-       
+
         pannel_center.add(btnClear);
         pannel_center.add(btnPercentage);
         pannel_center.add(btnSqRt);
@@ -248,7 +234,6 @@ class cal implements ActionListener {
 
         frame1.add(pannel_north, BorderLayout.NORTH);
         frame1.add(pannel_center, BorderLayout.CENTER);
-       
 
         btn0.addActionListener(this);
         btn1.addActionListener(this);
@@ -392,7 +377,7 @@ class cal implements ActionListener {
             firstDoubleValue = Double.parseDouble(firstValue);
             secondDoubleValue = Double.parseDouble(secondValue);
 
-            if (operator == "÷") {
+            if (operator == "/") {
                 Answer = (firstDoubleValue / secondDoubleValue) * 100;
                 result_textField.setText(" " + Answer);
             }
@@ -418,7 +403,7 @@ class cal implements ActionListener {
             } else if (operator == "×") {
                 Answer = firstDoubleValue * secondDoubleValue;
                 result_textField.setText(" " + Answer);
-            } else if (operator == "÷") {
+            } else if (operator == "/") {
                 Answer = firstDoubleValue / secondDoubleValue;
                 result_textField.setText(" " + Answer);
             }
@@ -434,11 +419,10 @@ class cal implements ActionListener {
             Answer = 0;
             decimalCount = 0;
             zeroCount = 0;
-        } 
+        }
 
-        
         throw new UnsupportedOperationException("Not supported yet.");
-        
+
     }
 
 }
@@ -446,6 +430,6 @@ class cal implements ActionListener {
 public class Calculator {
 
     public static void main(String[] args) {
-       new cal();
+        new cal();
     }
 }
