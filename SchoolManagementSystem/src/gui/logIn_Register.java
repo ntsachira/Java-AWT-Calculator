@@ -334,7 +334,7 @@ public class logIn_Register extends javax.swing.JFrame {
         jButton4.setBackground(new java.awt.Color(43, 46, 56));
         jButton4.setFont(new java.awt.Font("Segoe UI Semibold", 0, 15)); // NOI18N
         jButton4.setForeground(new java.awt.Color(255, 255, 255));
-        jButton4.setText("Do you have an account? Register");
+        jButton4.setText("Do not have an account? Register");
         jButton4.setContentAreaFilled(false);
         jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton4.setOpaque(true);
@@ -492,7 +492,7 @@ public class logIn_Register extends javax.swing.JFrame {
         jButton5.setBackground(new java.awt.Color(0, 204, 204));
         jButton5.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
         jButton5.setForeground(new java.awt.Color(255, 255, 255));
-        jButton5.setText("Log In");
+        jButton5.setText("Register");
         jButton5.setContentAreaFilled(false);
         jButton5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton5.setOpaque(true);
